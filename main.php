@@ -8,12 +8,12 @@ function connect_to_database() {
       $password = $dbparts['pass'];
       $database = ltrim($dbparts['path'], '/');
     } else {
-      $host = "localhost";
+      $hostname = "localhost";
       $username = "root";
       $password = "";
       $database = "chess";
     }
-    $db_connection = new mysqli($host, $username, $password, $database) or die("Unable to connect to database");
+    $db_connection = new mysqli($hostname, $username, $password, $database) or die("Unable to connect to database");
     $db_connection->select_db($database) or die("Unable to select database");
     $GLOBALS["db_connection"] = $db_connection;
   }
