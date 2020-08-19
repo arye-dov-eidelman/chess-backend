@@ -1,10 +1,19 @@
 <?php
 function connect_to_database() {
   if (!array_key_exists('db_connection', $GLOBALS)) {
-    $username = "root";
-    $password = "";
-    $database = "chess";
-    $db_connection = new mysqli("localhost", $username, $password, $database) or die("Unable to connect to database");
+    if ($url = getenv('JAWSDB_URL')) {
+      $dbparts = parse_url($url);
+      $hostname = $dbparts['host'];
+      $username = $dbparts['user'];
+      $password = $dbparts['pass'];
+      $database = ltrim($dbparts['path'], '/');
+    } else {
+      $host = "localhost";
+      $username = "root";
+      $password = "";
+      $database = "chess";
+    }
+    $db_connection = new mysqli($host, $username, $password, $database) or die("Unable to connect to database");
     $db_connection->select_db($database) or die("Unable to select database");
     $GLOBALS["db_connection"] = $db_connection;
   }
