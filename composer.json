@@ -1,0 +1,16 @@
+{
+    "name": "arye-eidelman/chess-backend",
+    "description": "backend api for multi player chess games",
+    "type": "project",
+    "require": {
+        "aglaia-resident/chess.php": "^2.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Arye Eidelman",
+            "email": "aryedov.e@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
