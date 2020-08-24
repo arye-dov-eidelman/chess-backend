@@ -25,7 +25,7 @@ CREATE TABLE `games` (
 CREATE TABLE `game_positions` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `game_id` int(11) NOT NULL,
-  `fen` int(11) NOT NULL,
+  `pgn` text NOT NULL,
   `half_move_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
